@@ -10,10 +10,11 @@ const searchPhone=()=>{
 }
 
 const showPhone=(phones)=>{
-    
+    const displayPhone = document.getElementById('display-phone-id');
+    displayPhone.textContent = ' ';
     phones.forEach(phone=>{
-        console.log(phone);
-        const displayPhone = document.getElementById('display-phone-id');
+
+        // console.log(phone);
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
