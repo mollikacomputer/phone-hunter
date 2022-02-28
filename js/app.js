@@ -1,6 +1,7 @@
 const searchPhone=()=>{
     const searchField = document.getElementById('search-field');
-    const searchText = searchField.value;
+    const searchText = searchField.value.toLowerCase();
+    // console.log(searchText);
     searchField.value = '';
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
     fetch(url)
