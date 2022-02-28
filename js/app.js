@@ -1,18 +1,20 @@
+document.getElementById('error-message').style.display='none';
 const searchPhone=()=>{
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value.toLowerCase();
-    searchField.value = ' ';
-    // console.log(searchText);
     searchField.value = '';
+    // console.log(searchText);
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
     fetch(url)
     .then(response=>response.json())
     .then(data=> showPhone(data.data))
+
 }
 
 const showPhone=(phones)=>{
+    // console.log(phones);
     const displayPhone = document.getElementById('display-phone-id');
-    displayPhone.textContent = ' ';
+    displayPhone.textContent = '';
     phones.forEach(phone=>{
         // console.log(phone);
         const div = document.createElement('div');
@@ -25,11 +27,36 @@ const showPhone=(phones)=>{
                 <p class="card-text">${phone.brand}</p>
             </div>
             <div class="card-footer">
-            <button id="phone-details" type="button" class="btn btn-light">Show Details</button>
+            <button onclick="phoneDetails('${phone.slug}')" type="button" class="btn btn-light bg-white">Show Details</button>
             </div>
         </div>
         `;
         displayPhone.appendChild(div);
     })
 }
+const phoneDetails=(id)=>{
+    const url = `https://openapi.programming-hero.com/api/phone/${id}`;
+    // console.log('hello bos hoise', info);
+    fetch(url)
+    .then(response=>response.json())
+    .then(data=>showPhoneInfo(data))
 
+}
+
+
+
+const showPhoneInfo = (info)=>{
+    document.getElementById('info-id').innerHTML = `
+        <div class="card" style="width: 80%;">
+            <img src="${info.data.image}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">${info.data.name} </h5>
+            <p class="card-text">${info.data.name} </p>
+            <p class="card-text">${info.data.releaseDate} </p>
+            <p class="card-text">${info.data.mainFeatures.storage} </p>
+            <p class="card-text">${info.data.others.WLAN} </p>
+            
+        </div>
+    </div>
+    `;
+}
