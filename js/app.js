@@ -1,6 +1,7 @@
 const searchPhone=()=>{
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value.toLowerCase();
+    searchField.value = ' ';
     // console.log(searchText);
     searchField.value = '';
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
@@ -13,7 +14,6 @@ const showPhone=(phones)=>{
     const displayPhone = document.getElementById('display-phone-id');
     displayPhone.textContent = ' ';
     phones.forEach(phone=>{
-
         // console.log(phone);
         const div = document.createElement('div');
         div.classList.add('col');
