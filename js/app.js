@@ -59,7 +59,7 @@ const phoneDetails=(id)=>{
 
 const showPhoneInfo = (info)=>{
     document.getElementById('info-id').innerHTML = `
-        <div class="card mx-auto" style="width: 50%;">
+        <div class="card mx-auto" style="width: 100%;">
             <img src="${info.data.image}" class="card-img-top" alt="...">
         <div class="card-body">
             <h6 class="card-title">${info.data.name} </h6>
