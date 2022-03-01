@@ -62,15 +62,16 @@ const showPhoneInfo = (info)=>{
         <div class="card" style="width: 80%;">
             <img src="${info.data.image}" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title"><b>Phone Name :</b> ${info.data.name} </h5>
-            <p class="card-text"><b>Phone Brand :</b> ${info.data.brand} </p>
-            <p class="card-text"><b>Realese Date :</b> ${info.data.release} </p>
-            
+            <h6 class="card-title">${info.data.name} </h6>
+            <p> <b> Main Feature : </b></p>
+            <p class="card-title"><b>Chip Set :</b> ${info.data.mainFeatures.chipSet} </p>
+            <p class="card-title"><b>Display Size :</b> ${info.data.mainFeatures.displaySize} </p>
+            <p class="card-title"><b>Memory :</b> ${info.data.mainFeatures.memory} </p>
+            <p> <b>Sensor :</b> ${info.data.mainFeatures.sensors}</p>
+            <p class="card-text"><b>Brand :</b> ${info.data.brand} </p>
             <p class="card-text"><b>Phone Release Date </b> 
-            <span id="release-data">
-                ${info.data.releaseDate} 
-             </span> </p>
-            <p class="card-text"><b>Phone Storage : </b>${info.data.mainFeatures.storage} </p>
+            <span id="release-data">${info.data.releaseDate}</span> </p>
+            <p class="card-text"><b>Storage : </b>${info.data.mainFeatures.storage} </p>
             <p class="card-text"> <b>Other info WLAN : </b>${info.data.others.WLAN} </p>
             
         </div>
