@@ -3,6 +3,7 @@ const searchPhone=()=>{
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value.toLowerCase();
     searchField.value = '';
+    document.getElementById('info-id').innerHTML='';
     if(searchText ==''){
         document.getElementById('spinner').style.display='block';
         document.getElementById('error-message').style.display='block';
@@ -54,12 +55,11 @@ const phoneDetails=(id)=>{
     fetch(url)
     .then(response=>response.json())
     .then(data=>showPhoneInfo(data))
-
 }
 
 const showPhoneInfo = (info)=>{
     document.getElementById('info-id').innerHTML = `
-        <div class="card" style="width: 80%;">
+        <div class="card mx-auto" style="width: 50%;">
             <img src="${info.data.image}" class="card-img-top" alt="...">
         <div class="card-body">
             <h6 class="card-title">${info.data.name} </h6>
@@ -73,7 +73,6 @@ const showPhoneInfo = (info)=>{
             <span id="release-data">${info.data.releaseDate}</span> </p>
             <p class="card-text"><b>Storage : </b>${info.data.mainFeatures.storage} </p>
             <p class="card-text"> <b>Other info WLAN : </b>${info.data.others.WLAN} </p>
-            
         </div>
     </div>
     `;

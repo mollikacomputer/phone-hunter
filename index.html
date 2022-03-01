@@ -14,14 +14,14 @@
         <h1 class="text-warning">Phone Finder</h1>
     </header>
     <main>
-        <div class="row row-cols-2">
+        <div class="row row-cols-1 mx-auto">
             <!-- start phone display area  -->
             <div id="phone-display-field" class="col">
                 <!-- start search field  -->
                 <div class="input-group mb-3">
                     <input id="search-field" type="text" class="form-control" placeholder="Search Phone" aria-label="Recipient's username" aria-describedby="button-addon2">
                     <button onclick="searchPhone()" class="btn btn-outline-secondary" type="button" >Search</button>
-                  </div>
+                </div>
                 <!-- end search field  -->
                  <!-- start spinner  -->
                  <div id="spinner" class=" justify-content-center">
@@ -30,6 +30,15 @@
                     </div>
                   </div>
                   <!-- end spinner  -->
+            <!-- phone info area  -->
+              <div class="col">
+                  <div id="info-id">
+                      
+                  </div>
+              </div>
+          </div>
+          <!--end phone info area  -->
+          
                 <h4 id="error-message" class="bg-light py-3 text-center text-warning"> Nothing Found </h4>
                 <div 
                 id="display-phone-id" 
@@ -40,13 +49,16 @@
                 
             </div>
             <!-- end phone display area  -->
+            
             <!-- phone info area  -->
-            <div class="col">
+            <!-- <div class="col">
                 <div id="info-id">
                     
                 </div>
 
             </div>
+             --><!--end phone info area  -->
+            
           </div>
 
 
