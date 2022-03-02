@@ -1,4 +1,5 @@
 document.getElementById('spinner').style.display='none';
+document.getElementById('error-message').style.display='none';
 const searchPhone=()=>{
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value.toLowerCase();
@@ -6,14 +7,14 @@ const searchPhone=()=>{
     document.getElementById('info-id').innerHTML='';
     if(searchText ==''){
         document.getElementById('spinner').style.display='block';
-        // document.getElementById('error-message').style.display='block';
+        document.getElementById('error-message').style.display='block';
         document.getElementById('display-phone-id').textContent = '';
     }else{
     // console.log(searchText);
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
     fetch(url)
     .then(response=>response.json())
-    .then(data=> showPhone(data.data))
+    .then(data=> showPhone(data.data.slice(0,20)))
     
     }
 }
@@ -24,7 +25,7 @@ const showPhone=(phones)=>{
     displayPhone.textContent = '';
     if(phones.length===0){
         document.getElementById('spinner').style.display = 'block';
-        // document.getElementById('error-message').style.display = 'block';
+        document.getElementById('error-message').style.display = 'block';
     }else{
         document.getElementById('spinner').style.display = 'none';
         document.getElementById('error-message').style.display = 'none';
