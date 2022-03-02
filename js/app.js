@@ -6,7 +6,7 @@ const searchPhone=()=>{
     document.getElementById('info-id').innerHTML='';
     if(searchText ==''){
         document.getElementById('spinner').style.display='block';
-        document.getElementById('error-message').style.display='block';
+        // document.getElementById('error-message').style.display='block';
         document.getElementById('display-phone-id').textContent = '';
     }else{
     // console.log(searchText);
@@ -24,7 +24,7 @@ const showPhone=(phones)=>{
     displayPhone.textContent = '';
     if(phones.length===0){
         document.getElementById('spinner').style.display = 'block';
-        document.getElementById('error-message').style.display = 'block';
+        // document.getElementById('error-message').style.display = 'block';
     }else{
         document.getElementById('spinner').style.display = 'none';
         document.getElementById('error-message').style.display = 'none';
@@ -76,4 +76,10 @@ const showPhoneInfo = (info)=>{
         </div>
     </div>
     `;
+    // release date condition
+    const releaseDateId = document.getElementById('release-data');
+    const releaseDateText = releaseDateId.textContent;
+    if(releaseDateText==''){
+        document.getElementById('release-data').innerText = 'No Release Date Found';
+    }
 }
